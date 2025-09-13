@@ -1,7 +1,7 @@
 class Solution {
     public String solution(String s, int n) {
         String answer = "";
-        
+
         int len = s.length();
         for(int i = 0; i<len;i++){
             char c = s.charAt(i);
@@ -25,7 +25,7 @@ class Solution {
             // System.out.println((char)( (c+1) % a));
             // answer+= Character.toString((char)((c+1) % a) );
         }
-        
+
         return answer;
     }
 }
