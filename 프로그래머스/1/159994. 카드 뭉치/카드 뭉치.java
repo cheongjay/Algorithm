@@ -11,21 +11,15 @@ class Solution {
         
         for(; i < goallen; i++){
             if(index1 < len1 && goal[i].equals(cards1[index1])){
-                System.out.println(cards1[index1]);
                 index1++;
             }
             else if(index2 < len2 && goal[i].equals(cards2[index2])){
-                System.out.println(cards2[index2]);
                 index2++;
             }
             else{
-                answer = "No";
-                break;
+                return "No";
             }
         }
-        if(i == goallen){
-            answer = "Yes";
-        }
-        return answer;
+        return "Yes";
     }
 }
