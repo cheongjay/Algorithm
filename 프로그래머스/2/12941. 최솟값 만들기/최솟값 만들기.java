@@ -24,11 +24,12 @@ class Solution
 //             answer += aList.get(i) * bList.get(i);
 //         }
         Arrays.sort(A);
-        
         Arrays.sort(B);
 
+        int bIndex = A.length -1;
+        
         for(int i = 0; i < A.length; i++){
-            answer += A[i] * + B[A.length -1 - i];
+            answer += A[i] * + B[bIndex - i];
         }
         return answer;
     }
