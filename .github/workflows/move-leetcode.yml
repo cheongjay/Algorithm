@@ -5,6 +5,8 @@ on:
   push:
     paths:
       - '[0-9][0-9][0-9][0-9]-*/**'  # LeetHub가 생성하는 폴더 패턴 (예: 0020-valid-parentheses)
+permissions:
+  contents: write
 
 jobs:
   move-files:
@@ -14,6 +16,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 2  # 최근 커밋 기록을 가져오기 위해 설정
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Move LeetCode solutions
         run: |
@@ -50,7 +53,7 @@ jobs:
             git config --global user.email 'github-actions[bot]@users.noreply.github.com'
             git add -A
             git commit -m "chore: Move LeetCode solutions to LeetCode folder"
-            git push
+            git push origin HEAD:${GITHUB_REF#refs/heads/}
           else
             echo "No changes to commit"
           fi
