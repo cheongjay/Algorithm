@@ -1,22 +1,21 @@
 class Solution {
     
-    static int count;
+    static int count = 0;
+    
     public int solution(int[] numbers, int target) {
- 
-        DFS(numbers, 0, 0, target);
-        
+        DFS(numbers, target, 0, 0);
         return count;
     }
     
-    public void DFS(int[] numbers, int p, int sum, int target){
-        if(p == numbers.length){
+    public void DFS(int[] num, int target, int sum, int idx){
+        if(idx == num.length){
             if(sum == target){
                 count++;
             }
             return;
         }
-        
-        DFS(numbers, p + 1, sum + numbers[p], target);
-        DFS(numbers, p + 1, sum - numbers[p], target);
+        DFS(num, target, sum + num[idx], idx + 1);
+        DFS(num, target, sum - num[idx], idx + 1);
     }
+ 
 }
