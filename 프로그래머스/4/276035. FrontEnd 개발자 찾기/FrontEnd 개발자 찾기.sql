@@ -1,0 +1,9 @@
+# 스킬 코드의 CODE와 개발자의 스킬 코드를 & 연산했을 때(비트 AND) 1이면 보유 중, 아니면 없음.
+SELECT DISTINCT D.ID, D.EMAIL, D.FIRST_NAME, D.LAST_NAME
+FROM DEVELOPERS D
+JOIN SKILLCODES C
+WHERE
+    D.SKILL_CODE & C.CODE >= 1
+    AND
+    C.CATEGORY = 'Front End'
+ORDER BY D.ID
