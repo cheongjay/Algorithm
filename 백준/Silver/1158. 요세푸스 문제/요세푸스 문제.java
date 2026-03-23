@@ -10,29 +10,27 @@ public class Main{
         int n = Integer.parseInt(input[0]);
         int k = Integer.parseInt(input[1]);
         
-        List<Integer> lst = new LinkedList<>();
+        Queue<Integer> q = new LinkedList<>();
         
         for(int i = 1; i <= n; i++){
-            lst.add(i);
+            q.add(i);
         }
         
-        int idx = -1;
-        System.out.print("<");
-        for(int i = 0; i < n; i++){
-            idx = move(idx, k, lst);
-            lst.remove(idx);
-            idx--;
-            if(i != n - 1){
-                System.out.print(", ");
+        StringBuilder sb = new StringBuilder();
+        sb.append("<");
+        
+        while(q.size() > 1){
+            for(int i = 0; i < k-1; i++){
+                int val = q.poll();
+                q.offer(val);
             }
+            
+            sb.append(q.poll()).append(", ");
         }
-        System.out.print(">");
-
-    }
-    
-    public static int move(int idx, int step, List<Integer> lst){
-        int next = (idx + step) % lst.size();
-        System.out.print(lst.get(next));
-        return next;
+        
+        // 마지막 원소
+        sb.append(q.poll()).append(">");
+        
+        System.out.print(sb.toString());
     }
 }
