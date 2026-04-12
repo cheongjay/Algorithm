@@ -2,24 +2,24 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] array, int[][] commands) {
-        int[] answer = new int[commands.length];
+        int times = commands.length;
+        int[] answer = new int[times];
         
-        int idx = 0;
-        
-        for(int i = 0; i < commands.length; i++){
-            List<Integer> slice = new ArrayList<>();
+        for(int t = 0; t < times; t++){
+            int i = commands[t][0];
+            int j = commands[t][1];
+            int k = commands[t][2];
+            // 자르기
+            Integer[] slice = Arrays.stream(Arrays.copyOfRange(array, i-1, j))
+                                .boxed()
+                                .toArray(Integer[]::new);
             
-            for(int j = commands[i][0]; j <= commands[i][1]; j++){
-                slice.add(array[j-1]);
-            }
-            int k = commands[i][2];
+            // 정렬
+            Arrays.sort(slice, (a, b) -> a - b);
             
-            Object[] sliceArray = slice.toArray();
-            Arrays.sort(sliceArray);
-            
-            answer[idx++] = (int)sliceArray[k-1];
+            // k번째 숫자
+            answer[t] = slice[k-1];
         }
-        
         return answer;
     }
 }
