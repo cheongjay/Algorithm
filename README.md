@@ -32,4 +32,8 @@
 |  |
 | ------- |
 | [0104-maximum-depth-of-binary-tree](https://github.com/cheongjay/Algorithm/tree/master/0104-maximum-depth-of-binary-tree) |
+## Database
+|  |
+| ------- |
+| [0178-rank-scores](https://github.com/cheongjay/Algorithm/tree/master/0178-rank-scores) |
 <!---LeetCode Topics End-->
