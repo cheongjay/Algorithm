@@ -1,10 +1,10 @@
 # [level 4] 입양 시각 구하기(2) - 59413 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59413) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59413?language=oracle) 
 
 ### 성능 요약
 
-메모리: 0.0 MB, 시간: 0.00 ms
+메모리: undefined, 시간: 
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 04월 15일 15:18:57
+2026년 04월 22일 23:49:00
 
 ### 문제 설명
 
