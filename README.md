@@ -38,4 +38,5 @@
 | [0178-rank-scores](https://github.com/cheongjay/Algorithm/tree/master/0178-rank-scores) |
 | [0182-duplicate-emails](https://github.com/cheongjay/Algorithm/tree/master/0182-duplicate-emails) |
 | [0183-customers-who-never-order](https://github.com/cheongjay/Algorithm/tree/master/0183-customers-who-never-order) |
+| [1193-monthly-transactions-i](https://github.com/cheongjay/Algorithm/tree/master/1193-monthly-transactions-i) |
 <!---LeetCode Topics End-->
