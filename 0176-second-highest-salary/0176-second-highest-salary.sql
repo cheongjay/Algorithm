@@ -1,0 +1,10 @@
+SELECT MAX(SALARY) AS SecondHighestSalary
+FROM (
+    SELECT SALARY, ROWNUM AS RN
+    FROM(
+        SELECT DISTINCT SALARY
+        FROM Employee
+        ORDER BY SALARY DESC
+    )
+)
+WHERE RN = 2
