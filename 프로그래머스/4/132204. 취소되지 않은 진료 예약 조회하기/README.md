@@ -1,10 +1,10 @@
 # [level 4] 취소되지 않은 진료 예약 조회하기 - 132204 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/132204) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/132204?language=oracle) 
 
 ### 성능 요약
 
-메모리: 0.0 MB, 시간: 0.00 ms
+메모리: undefined, 시간: 
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 04월 07일 23:42:04
+2026년 05월 12일 22:54:09
 
 ### 문제 설명
 
