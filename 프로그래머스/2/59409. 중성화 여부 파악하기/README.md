@@ -1,6 +1,6 @@
 # [level 2] 중성화 여부 파악하기 - 59409 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59409?language=oracle) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/59409?language=mysql) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 05월 12일 23:05:06
+2026년 05월 22일 23:09:43
 
 ### 문제 설명
 
