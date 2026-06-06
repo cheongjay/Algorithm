@@ -17,17 +17,22 @@ class Solution {
             if(r.length == 3){
                 nick = r[2];
             }
-            
-            instructions.add(instr);
-            ids.add(id);
-            
+              
             if(instr.equals("Enter")){
                 map.put(id, nick);
+                instructions.add(instr);
+                ids.add(id);
             }
             else if(instr.equals("Change")){
                 map.put(id, nick);
             }
+            else{
+                instructions.add(instr);
+                ids.add(id);
+            }
         }
+        
+        String[] answer = new String[instructions.size()];
         
         for(int i = 0; i < ids.size(); i++){
             StringBuilder str = new StringBuilder();
@@ -37,20 +42,11 @@ class Solution {
             if(instructions.get(i).equals("Enter")){
                 str.append("들어왔습니다.");
             }
-            else if(instructions.get(i).equals("Change")){
-                continue;
-            }
             else{
                 str.append("나갔습니다.");    
             }
             
-            lst.add(str.toString());
-        }
-        
-        String[] answer = new String[lst.size()];
-        
-        for(int i = 0; i < lst.size(); i++){
-            answer[i] = lst.get(i);
+            answer[i] = str.toString();
         }
         
         return answer;
