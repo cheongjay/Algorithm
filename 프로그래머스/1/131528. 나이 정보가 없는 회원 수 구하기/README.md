@@ -1,10 +1,10 @@
 # [level 1] 나이 정보가 없는 회원 수 구하기 - 131528 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131528) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/131528?language=oracle) 
 
 ### 성능 요약
 
-메모리: 0.0 MB, 시간: 0.00 ms
+메모리: undefined, 시간: 
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 04월 05일 21:02:20
+2026년 06월 15일 22:44:42
 
 ### 문제 설명
 
