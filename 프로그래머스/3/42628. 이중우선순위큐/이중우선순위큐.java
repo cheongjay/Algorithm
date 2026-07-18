@@ -6,48 +6,43 @@ class Solution {
         PriorityQueue<Integer> max = new PriorityQueue<>((a,b) -> b-a);
         PriorityQueue<Integer> min = new PriorityQueue<>((a,b) -> a-b);
         
-        for(String oper : operations){
-            String[] o = new String[1];
-            boolean[] deleteMax = new boolean[1];
-            deleteMax[0] = true;
-            int[] num = new int[1];
+        for(String o : operations){
+            String[] input = o.split(" ");
             
-            parsing(oper, o, deleteMax, num);
+            // I면 q 에 add
+            if(input[0].equals("I")){
+                max.offer(Integer.parseInt(input[1]));
+                min.offer(Integer.parseInt(input[1]));
+            }
             
-            if(o[0].equals("I")){
-                max.offer(num[0]);
-                min.offer(num[0]);
-            }
-            else if(o[0].equals("D") && !max.isEmpty()){
-                if(deleteMax[0]){
-                    // 최댓값 삭제
-                    int m = max.poll();
-                    min.remove(m);
+            // D
+            if(input[0].equals("D"))
+            {
+                if(max.isEmpty() && min.isEmpty()){
+                    continue;
                 }
-                else{
-                    // 최솟값 삭제
-                    int m = min.poll();
-                    max.remove(m);
+                   
+                // -1 : 최솟값 삭제
+                if(input[1].startsWith("-")){
+                    int minV = min.poll();
+                    max.remove(minV);
+                    continue;
                 }
-            }
+                
+                //  1 : 최댓값 삭제
+                int maxV = max.poll();
+                min.remove(maxV);
+            }      
         }
-        int[] answer = new int[2];
-        if(!max.isEmpty() && !min.isEmpty()){
-            answer[0] = max.peek();
-            answer[1] = min.peek();
+        
+        // 큐 비어있으면 [0,0] 리턴
+        if(max.size() == 0 && min.size() == 0){
+            return new int[] {0,0};
         }
+        
+        // 비어있지 않으면 [최댓값, 최솟값] 리턴
+        int[] answer = {max.peek(), min.peek()};
         return answer;
     }
     
-    public void parsing(String str, String[] o, boolean[] deleteMax, int[] num){
-        
-        String[] parts = str.split(" ");
-        o[0] = parts[0];
-        if(parts[1].startsWith("-")){
-            deleteMax[0] = false;
-        }
-        num[0] = Integer.parseInt(parts[1]);
-        
-        return;
-    }
 }
