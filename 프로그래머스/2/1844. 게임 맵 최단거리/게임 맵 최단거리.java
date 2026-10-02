@@ -1,62 +1,66 @@
 import java.util.*;
 
 class Solution {
-    static Queue<Pair> q = new LinkedList<>();
+    int[][] d;
+    int n;
+    int m;
     
     public int solution(int[][] maps) {
-        int row = maps.length;
-        int col = maps[0].length;
+        n = maps.length;
+        m = maps[0].length;
+        d = new int[n][m];
+
+        bfs(new Pair(0,0), maps);
         
-        int[] dx = {-1, 1, 0, 0};
-        int[] dy = {0, 0, -1, 1};
+        if(d[n-1][m-1] == 0) {
+            return -1;
+        }
         
-        int[][] dist = new int[row][col];
+        return d[n-1][m-1];
+    }
+    
+    void bfs(Pair p, int[][] maps) {
         
-        boolean[][] visited = new boolean[row][col];
+        int[] dx = {1, -1, 0, 0};
+        int[] dy = {0, 0, 1, -1};
         
-        q.offer(new Pair(0,0));
-        visited[0][0] = true;
+        Queue<Pair> q = new LinkedList<>();
+        boolean[][] v = new boolean[n][m];
+        
+        // 처음 위치 값 세팅
+        v[0][0] = true;
+        q.add(p);
+        d[0][0] = 1;
         
         while(!q.isEmpty()){
-            Pair p = q.poll();
+            Pair c = q.poll();
             
-            for(int i = 0; i < 4; i++){
-                int nX = p.x + dx[i];
-                int nY = p.y + dy[i];
-                
-                // 진영을 벗어났는가 체크
-                if(nX < 0 || nX >= row || nY < 0 || nY >= col){
+            // 동서 방향으로 이동 시도
+            for(int i = 0; i < 4; i++) {
+                int nx = c.x + dx[i];
+                int ny = c.y + dy[i];
+                // 벗어난 길이면 패스
+                if(nx < 0 || nx >= n || ny < 0 || ny >= m) {
+                    continue;
+                }
+                // 벽이거나 방문한 곳이면 패스
+                if(maps[nx][ny] == 0 || v[nx][ny]) {
                     continue;
                 }
                 
-                // 갈 수 없는 길이거나 이미 방문한 길인지 체크
-                if(maps[nX][nY] == 0 || visited[nX][nY]){
-                    continue;
-                }
-                
-                q.offer(new Pair(nX, nY));
-                dist[nX][nY] = dist[p.x][p.y] + 1;
-                visited[nX][nY] = true;
-            }
-            
-        }
-        
-        // 방문했다면 도달 가능하므로 +1 한 값 리턴
-        if(visited[row-1][col-1]){
-            return dist[row-1][col-1] + 1;
-        }
-        // 방문 못했다면 도달 못했으므로 -1 리턴
-        else{
-            return -1;
+                v[nx][ny] = true; // 방문 처리
+                q.add(new Pair(nx, ny)); // 큐 삽입           
+                d[nx][ny] = d[c.x][c.y] + 1; // 거리 기록
+            }     
         }
     }
 }
 
-class Pair{
+class Pair {
     int x;
     int y;
     
-    public Pair(int x, int y){
+    Pair(int x, int y) {
         this.x = x;
         this.y = y;
     }
