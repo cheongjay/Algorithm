@@ -6,18 +6,29 @@ class Solution {
         d = dungeons;
         v = new boolean[dungeons.length];
         
-        explore(k, 0);
+        explore(0, k, 0);
         
         return max;
     }
     
-    void explore(int k, int cnt) {
-        max = Math.max(max, cnt);
+    void explore(int depth, int k, int cnt) {
+        if(depth == d.length) {
+            if(cnt > max) {
+                max = cnt;
+            }
+            return;
+        }
         
         for(int i = 0; i < d.length; i++) {
-            if(!v[i] && d[i][0] <= k) {
+            if(!v[i]) {
                 v[i] = true;
-                explore(k - d[i][1], cnt+1);
+
+                if(d[i][0] <= k) {
+                    explore(depth + 1, k - d[i][1], cnt+1);
+                }
+                else {
+                    explore(depth + 1, k, cnt);
+                }
                 v[i] = false;            
             }
         }
